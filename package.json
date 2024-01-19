@@ -1,6 +1,6 @@
 {
   "name": "3d-phone-carousel",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple, modern look 3D image carousel with IPhone frame, written with React",
   "author": "mahdi-g01",
   "license": "MIT",
@@ -62,5 +62,8 @@
   ],
   "dependencies": {
     "sass": "^1.70.0"
-  }
+  },
+  "keywords": [
+    "3D", "carousel", "phone", "slider", "slideshow", "react"
+  ]
 }
