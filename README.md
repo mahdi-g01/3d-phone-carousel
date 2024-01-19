@@ -10,7 +10,7 @@ A simple, modern look 3D phone carousel, written with React.
 
 ## Installation
 
-Just run ```npm i @mahdi-g01/3d-phone-carousel```
+Just run ```npm i 3d-phone-carousel```
 
 ## How to use
 
@@ -33,8 +33,8 @@ You can set up these props to:
 ### Example of usage
 ```
 // REMEMBER TO IMPORT BOTH COMPONENT AND ITS STYLE
-import "@mahdi-g01/3d-phone-carousel/dist/index.css"
-import { PhoneSlider } from '@mahdi-g01/3d-phone-carousel/dist';
+import "3d-phone-carousel/dist/index.css"
+import { PhoneSlider } from '3d-phone-carousel/dist';
 
 function YourParentComponent(props) {
     const slideForwardButton = useRef(null);
