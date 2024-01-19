@@ -1099,34 +1099,42 @@ if (process.env.NODE_ENV !== 'production') {
 }
 });
 
-var styles = {"phone-slider":"_slider__phone-slider__3LGCG","slides-container":"_slider__slides-container__2Z_sG","details-container":"_slider__details-container__YWaQA","clickable-area":"_slider__clickable-area__2HJJ5","slide-container":"_slider__slide-container__6DQfO","slide":"_slider__slide__tjmOG","notch":"_slider__notch__1jnpn","slide-img":"_slider__slide-img__31q_7","slide-container-8":"_slider__slide-container-8__39hzV","slide-container-7":"_slider__slide-container-7__1Qkh1","slide-container-6":"_slider__slide-container-6__phOHX","slide-container-5":"_slider__slide-container-5__2d6wy","slide-container-4":"_slider__slide-container-4__3jL9e","slide-container-3":"_slider__slide-container-3__3CvqK","slide-container-2":"_slider__slide-container-2__1S4Ez","slide-container-1":"_slider__slide-container-1__1fGFR","slide-container-0":"_slider__slide-container-0__3_dgs"};
+var styles = {"phone-slider":"_3LGCG","slides-container":"_2Z_sG","details-container":"_YWaQA","clickable-area":"_2HJJ5","slide-container":"_6DQfO","slide":"_tjmOG","notch":"_1jnpn","slide-img":"_31q_7","slide-container-8":"_39hzV","slide-container-7":"_1Qkh1","slide-container-6":"_phOHX","slide-container-5":"_2d6wy","slide-container-4":"_3jL9e","slide-container-3":"_3CvqK","slide-container-2":"_1S4Ez","slide-container-1":"_1fGFR","slide-container-0":"_3_dgs"};
 
 var PhoneNotch = "phone-notch~zxAmXQbd.svg";
 
 function PhoneSlider(props) {
-  const [movementOffset, setMovementOffset] = useState(0);
-  const [initialItems] = useState(fillArrayWithOriginalItems(props.items));
-  const [currentItem, setCurrentItem] = useState(initialItems[4]);
-  const delay = props.delay ?? 3000;
-  const moveForward = useCallback(() => {
+  var _props$delay;
+  var _useState = useState(0),
+    movementOffset = _useState[0],
+    setMovementOffset = _useState[1];
+  var _useState2 = useState(fillArrayWithOriginalItems(props.items)),
+    initialItems = _useState2[0];
+  var _useState3 = useState(initialItems[4]),
+    currentItem = _useState3[0],
+    setCurrentItem = _useState3[1];
+  var delay = (_props$delay = props.delay) != null ? _props$delay : 3000;
+  var moveForward = useCallback(function () {
     setMovementOffset(movementOffset + 1);
   }, [movementOffset]);
-  const moveBackward = useCallback(() => {
+  var moveBackward = useCallback(function () {
     setMovementOffset(movementOffset - 1);
   }, [movementOffset]);
-  useEffect(() => {
-    if (props.forwardButtonRef != null) props.forwardButtonRef.current.onclick = () => {
+  useEffect(function () {
+    if (props.forwardButtonRef != null) props.forwardButtonRef.current.onclick = function () {
       moveForward();
     };
-    if (props.backwardButtonRef != null) props.backwardButtonRef.current.onclick = () => {
+    if (props.backwardButtonRef != null) props.backwardButtonRef.current.onclick = function () {
       moveBackward();
     };
   }, [props.forwardButtonRef, props.backwardButtonRef, movementOffset, moveForward, moveBackward]);
-  useEffect(() => {
-    const interval = setInterval(() => {
+  useEffect(function () {
+    var interval = setInterval(function () {
       moveForward();
     }, delay);
-    return () => clearInterval(interval);
+    return function () {
+      return clearInterval(interval);
+    };
   }, [delay, moveForward, movementOffset]);
   return createElement("div", {
     className: styles['phone-slider'],
@@ -1221,18 +1229,20 @@ PhoneSlider.propTypes = {
   outerMove: propTypes.number
 };
 function fillArrayWithOriginalItems(originalArray) {
-  const filledArray = [];
-  for (let i = 0; i < 9; i++) {
+  var filledArray = [];
+  for (var i = 0; i < 9; i++) {
     filledArray.push(originalArray[i % originalArray.length]);
   }
   return filledArray;
 }
 function Slide(props) {
-  const inputSlideNumber = props.startOffset + props.moveOffset;
-  let viewSlideNumber = inputSlideNumber % 9;
+  var inputSlideNumber = props.startOffset + props.moveOffset;
+  var viewSlideNumber = inputSlideNumber % 9;
   if (viewSlideNumber < 0) viewSlideNumber += 9;
-  const [item, setItem] = useState(props.initialItem);
-  useEffect(() => {
+  var _useState4 = useState(props.initialItem),
+    item = _useState4[0],
+    setItem = _useState4[1];
+  useEffect(function () {
     if (viewSlideNumber === 8) {
       setItem(getPreviousItem(props.items, props.moveOffset));
     }
@@ -1243,9 +1253,9 @@ function Slide(props) {
       props.onItemShowed(item);
     }
   }, [item, props, viewSlideNumber]);
-  const containerClass = styles[`slide-container-${Math.abs(viewSlideNumber)}`];
+  var containerClass = styles["slide-container-" + Math.abs(viewSlideNumber)];
   return createElement("div", {
-    className: `${styles['slide-container']} ${containerClass}`
+    className: styles['slide-container'] + " " + containerClass
   }, createElement("div", {
     className: styles.slide
   }, createElement("div", null, createElement("img", {
@@ -1259,14 +1269,14 @@ function Slide(props) {
   }))));
 }
 function getNextItem(array, slidesCount, mo) {
-  let targetIndex = (slidesCount + mo) % array.length;
+  var targetIndex = (slidesCount + mo) % array.length;
   if (targetIndex < 0) {
     targetIndex = array.length + targetIndex;
   }
   return array[targetIndex];
 }
 function getPreviousItem(array, mo) {
-  let targetIndex = mo % array.length;
+  var targetIndex = mo % array.length;
   if (targetIndex < 0) {
     targetIndex = array.length + targetIndex;
   }

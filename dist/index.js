@@ -1099,7 +1099,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 });
 
-var styles = {"phone-slider":"_slider__phone-slider__3LGCG","slides-container":"_slider__slides-container__2Z_sG","details-container":"_slider__details-container__YWaQA","clickable-area":"_slider__clickable-area__2HJJ5","slide-container":"_slider__slide-container__6DQfO","slide":"_slider__slide__tjmOG","notch":"_slider__notch__1jnpn","slide-img":"_slider__slide-img__31q_7","slide-container-8":"_slider__slide-container-8__39hzV","slide-container-7":"_slider__slide-container-7__1Qkh1","slide-container-6":"_slider__slide-container-6__phOHX","slide-container-5":"_slider__slide-container-5__2d6wy","slide-container-4":"_slider__slide-container-4__3jL9e","slide-container-3":"_slider__slide-container-3__3CvqK","slide-container-2":"_slider__slide-container-2__1S4Ez","slide-container-1":"_slider__slide-container-1__1fGFR","slide-container-0":"_slider__slide-container-0__3_dgs"};
+var styles = {"phone-slider":"_3LGCG","slides-container":"_2Z_sG","details-container":"_YWaQA","clickable-area":"_2HJJ5","slide-container":"_6DQfO","slide":"_tjmOG","notch":"_1jnpn","slide-img":"_31q_7","slide-container-8":"_39hzV","slide-container-7":"_1Qkh1","slide-container-6":"_phOHX","slide-container-5":"_2d6wy","slide-container-4":"_3jL9e","slide-container-3":"_3CvqK","slide-container-2":"_1S4Ez","slide-container-1":"_1fGFR","slide-container-0":"_3_dgs"};
 
 var PhoneNotch = "phone-notch~zxAmXQbd.svg";
 
