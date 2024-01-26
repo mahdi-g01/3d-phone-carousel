@@ -1101,8 +1101,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 var styles = {"phone-slider":"_3LGCG","slides-container":"_2Z_sG","details-container":"_YWaQA","clickable-area":"_2HJJ5","slide-container":"_6DQfO","slide":"_tjmOG","notch":"_1jnpn","slide-img":"_31q_7","slide-container-8":"_39hzV","slide-container-7":"_1Qkh1","slide-container-6":"_phOHX","slide-container-5":"_2d6wy","slide-container-4":"_3jL9e","slide-container-3":"_3CvqK","slide-container-2":"_1S4Ez","slide-container-1":"_1fGFR","slide-container-0":"_3_dgs"};
 
-var PhoneNotch = "phone-notch~zxAmXQbd.svg";
-
 function PhoneSlider(props) {
   var _props$delay;
   var _useState = useState(0),
@@ -1258,15 +1256,25 @@ function Slide(props) {
     className: styles['slide-container'] + " " + containerClass
   }, createElement("div", {
     className: styles.slide
-  }, createElement("div", null, createElement("img", {
-    alt: 'design',
-    className: styles.notch,
-    src: PhoneNotch
+  }, createElement("div", null, createElement(Notch, {
+    className: styles.notch
   }), createElement("img", {
     alt: item.title,
     src: item.image,
     className: styles['slide-img']
   }))));
+}
+function Notch(props) {
+  return createElement("svg", Object.assign({
+    xmlns: 'http://www.w3.org/2000/svg'
+  }, props, {
+    width: 115,
+    height: 16,
+    fill: 'none'
+  }), createElement("path", {
+    fill: '#E9E9E9',
+    d: 'M6.322 0a3 3 0 0 1 2.754 1.81l4.473 10.352a5.59 5.59 0 0 0 5.136 3.36h69.748a5.59 5.59 0 0 0 5.136-3.36L98.041 1.81A3 3 0 0 1 100.796 0H115 0h6.322Z'
+  }));
 }
 function getNextItem(array, slidesCount, mo) {
   var targetIndex = (slidesCount + mo) % array.length;

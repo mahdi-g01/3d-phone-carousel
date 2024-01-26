@@ -2,7 +2,6 @@ import * as React from 'react'
 import { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './slider.css'
-import PhoneNotch from './phone-notch.svg'
 
 function PhoneSlider(props: any) {
   const [movementOffset, setMovementOffset] = useState(0)
@@ -204,7 +203,7 @@ function Slide(props: {
     <div className={`${styles['slide-container']} ${containerClass}`}>
       <div className={styles.slide}>
         <div>
-          <img alt='design' className={styles.notch} src={PhoneNotch} />
+          <Notch className={styles.notch} />
           <img
             alt={item.title}
             src={item.image}
@@ -213,6 +212,23 @@ function Slide(props: {
         </div>
       </div>
     </div>
+  )
+}
+
+function Notch(props: any) {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+      width={115}
+      height={16}
+      fill='none'
+    >
+      <path
+        fill='#E9E9E9'
+        d='M6.322 0a3 3 0 0 1 2.754 1.81l4.473 10.352a5.59 5.59 0 0 0 5.136 3.36h69.748a5.59 5.59 0 0 0 5.136-3.36L98.041 1.81A3 3 0 0 1 100.796 0H115 0h6.322Z'
+      />
+    </svg>
   )
 }
 
